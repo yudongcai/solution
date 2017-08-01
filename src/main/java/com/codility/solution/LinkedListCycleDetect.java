@@ -21,6 +21,24 @@ public class LinkedListCycleDetect {
 		return false;
 	}
 	
+	// This function will find middle element in linkedlist
+	//fast travel twice as faster as the slow one, fast reach end, slow read middle
+	public Node findMiddleNode(Node head) {
+		Node slowPointer, fastPointer;
+		slowPointer = fastPointer = head;
+
+		while (fastPointer != null) {
+			fastPointer = fastPointer.next;
+			if (fastPointer != null && fastPointer.next != null) {
+				slowPointer = slowPointer.next;
+				fastPointer = fastPointer.next;
+			}
+		}
+
+		return slowPointer;
+
+	}
+	
 	public Node reverse(Node currentNode) {
 		if (currentNode == null) {
 			return currentNode;

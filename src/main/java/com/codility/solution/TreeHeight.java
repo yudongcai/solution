@@ -12,6 +12,24 @@ public class TreeHeight {
 			return 0;
 		}
 	}
+	
+	public int getLevelOfNode(Tree T, int key, int level) {
+		if (T == null) {
+			return 0;
+		}
+		
+		if (T.x == key) {
+			return level;
+		}
+		
+		int result = getLevelOfNode(T.l, key, level + 1);
+		
+		if (result != 0) {
+			return result;
+		}
+		
+		return getLevelOfNode(T.r, key, level + 1);
+	}
 
 }
 
